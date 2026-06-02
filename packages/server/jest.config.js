@@ -4,12 +4,16 @@ module.exports = {
     preset: 'ts-jest',
     transform: {
         '^.+\\.tsx?$': ['ts-jest', {
+            isolatedModules: true,
             tsconfig: {
                 experimentalDecorators: true,
                 emitDecoratorMetadata: true,
                 esModuleInterop: true,
                 strictPropertyInitialization: false,
-                skipLibCheck: true
+                skipLibCheck: true,
+                paths: {
+                    'flowise-components': ['test/__mocks__/emptyModule.js']
+                }
             }
         }]
     },
@@ -32,7 +36,7 @@ module.exports = {
         '^s3-streamlogger$': '<rootDir>/test/__mocks__/emptyModule.js',
         '^multer-cloud-storage$': '<rootDir>/test/__mocks__/emptyModule.js',
         '^multer-s3$': '<rootDir>/test/__mocks__/emptyModule.js',
-        '^flowise-components$': '<rootDir>/test/__mocks__/emptyModule.js',
+        '^flowise-components(.*)$': '<rootDir>/test/__mocks__/emptyModule.js',
         '^flowise-ui$': '<rootDir>/test/__mocks__/emptyModule.js',
         '^flowise-nim-container-manager$': '<rootDir>/test/__mocks__/emptyModule.js',
         '^global-agent/bootstrap$': '<rootDir>/test/__mocks__/emptyModule.js',

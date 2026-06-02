@@ -104,7 +104,7 @@ export const scimCreateUser = async (body: any, baseUrl: string) => {
 
         const user = userRepo().create({
             email,
-            name: body.name?.formatted ?? body.displayName ?? `${body.name?.givenName ?? ''} ${body.name?.familyName ?? ''}`.trim() || undefined,
+            name: (body.name?.formatted ?? body.displayName ?? `${body.name?.givenName ?? ''} ${body.name?.familyName ?? ''}`.trim()) || undefined,
             authProvider: 'saml',
             externalId: body.externalId,
             passwordHash,

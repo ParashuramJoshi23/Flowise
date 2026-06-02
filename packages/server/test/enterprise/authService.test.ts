@@ -1,4 +1,9 @@
-import bcrypt from 'bcryptjs'
+// Prevent transitive load of full app server and its heavy deps
+jest.mock('../../src/utils/getRunningExpressApp', () => ({
+    getRunningExpressApp: jest.fn()
+}))
+
+
 import { hashPassword, comparePassword } from '../../src/enterprise/auth/authService'
 
 // Only test pure functions that don't need DB (loginWithPassword etc. require mocking the full app)

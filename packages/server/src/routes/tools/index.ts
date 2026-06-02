@@ -1,7 +1,10 @@
 import express from 'express'
 import toolsController from '../../controllers/tools'
+import { resolveWorkspace } from '../../middlewares/workspace'
 
 const router = express.Router()
+
+router.use(resolveWorkspace)
 
 // CREATE
 router.post('/', toolsController.createTool)

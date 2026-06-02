@@ -12,7 +12,8 @@ const createAssistant = async (req: Request, res: Response, next: NextFunction) 
                 `Error: assistantsController.createAssistant - body not provided!`
             )
         }
-        const apiResponse = await assistantsService.createAssistant(req.body)
+        const body = req.workspaceId ? { ...req.body, workspaceId: req.workspaceId } : req.body
+        const apiResponse = await assistantsService.createAssistant(body)
         return res.json(apiResponse)
     } catch (error) {
         next(error)
@@ -37,7 +38,7 @@ const deleteAssistant = async (req: Request, res: Response, next: NextFunction) 
 const getAllAssistants = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const type = req.query.type as AssistantType
-        const apiResponse = await assistantsService.getAllAssistants(type)
+        const apiResponse = await assistantsService.getAllAssistants(type, req.workspaceId)
         return res.json(apiResponse)
     } catch (error) {
         next(error)

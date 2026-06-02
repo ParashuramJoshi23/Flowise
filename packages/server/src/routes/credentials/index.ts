@@ -1,6 +1,9 @@
 import express from 'express'
 import credentialsController from '../../controllers/credentials'
+import { resolveWorkspace } from '../../middlewares/workspace'
 const router = express.Router()
+
+router.use(resolveWorkspace)
 
 // CREATE
 router.post('/', credentialsController.createCredential)

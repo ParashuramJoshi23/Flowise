@@ -21,6 +21,8 @@ declare global {
         interface Request {
             workspaceId?: string
             workspace?: Workspace
+            /** Set by authentication middleware when SSO is active. */
+            user?: { id: string; email: string; role: string }
         }
     }
 }

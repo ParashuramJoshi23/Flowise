@@ -33,10 +33,11 @@ const deleteVariable = async (variableId: string): Promise<any> => {
     }
 }
 
-const getAllVariables = async () => {
+const getAllVariables = async (workspaceId?: string) => {
     try {
         const appServer = getRunningExpressApp()
-        const dbResponse = await appServer.AppDataSource.getRepository(Variable).find()
+        const where = workspaceId ? { workspaceId } : {}
+        const dbResponse = await appServer.AppDataSource.getRepository(Variable).find({ where })
         return dbResponse
     } catch (error) {
         throw new InternalFlowiseError(

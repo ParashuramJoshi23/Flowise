@@ -39,27 +39,30 @@ const deleteCredentials = async (credentialId: string): Promise<any> => {
     }
 }
 
-const getAllCredentials = async (paramCredentialName: any) => {
+const getAllCredentials = async (paramCredentialName: any, workspaceId?: string) => {
     try {
         const appServer = getRunningExpressApp()
+        const scopeWhere = workspaceId ? { workspaceId } : {}
         let dbResponse = []
         if (paramCredentialName) {
             if (Array.isArray(paramCredentialName)) {
                 for (let i = 0; i < paramCredentialName.length; i += 1) {
                     const name = paramCredentialName[i] as string
                     const credentials = await appServer.AppDataSource.getRepository(Credential).findBy({
-                        credentialName: name
+                        credentialName: name,
+                        ...scopeWhere
                     })
                     dbResponse.push(...credentials)
                 }
             } else {
                 const credentials = await appServer.AppDataSource.getRepository(Credential).findBy({
-                    credentialName: paramCredentialName as string
+                    credentialName: paramCredentialName as string,
+                    ...scopeWhere
                 })
                 dbResponse = [...credentials]
             }
         } else {
-            const credentials = await appServer.AppDataSource.getRepository(Credential).find()
+            const credentials = await appServer.AppDataSource.getRepository(Credential).find({ where: scopeWhere })
             for (const credential of credentials) {
                 dbResponse.push(omit(credential, ['encryptedData']))
             }

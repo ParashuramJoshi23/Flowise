@@ -43,6 +43,9 @@ export class ChatFlow implements IChatFlow {
     @Column({ nullable: true, type: 'text' })
     type?: ChatflowType
 
+    @Column({ nullable: true, type: 'uuid' })
+    workspaceId?: string
+
     @Column({ type: 'timestamp' })
     @CreateDateColumn()
     createdDate: Date

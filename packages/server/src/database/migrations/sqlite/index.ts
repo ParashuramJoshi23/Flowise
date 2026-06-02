@@ -27,6 +27,7 @@ import { AddArtifactsToChatMessage1726156258465 } from './1726156258465-AddArtif
 import { AddCustomTemplate1725629836652 } from './1725629836652-AddCustomTemplate'
 import { AddFollowUpPrompts1726666294213 } from './1726666294213-AddFollowUpPrompts'
 import { AddTypeToAssistant1733011290987 } from './1733011290987-AddTypeToAssistant'
+import { AddWorkspaceEntities1748100000000 } from './1748100000000-AddWorkspaceEntities'
 import { AddExecutionEntity1738090872625 } from './1738090872625-AddExecutionEntity'
 
 export const sqliteMigrations = [
@@ -59,5 +60,6 @@ export const sqliteMigrations = [
     AddCustomTemplate1725629836652,
     AddFollowUpPrompts1726666294213,
     AddTypeToAssistant1733011290987,
-    AddExecutionEntity1738090872625
+    AddExecutionEntity1738090872625,
+    AddWorkspaceEntities1748100000000
 ]

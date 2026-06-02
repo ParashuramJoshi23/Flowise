@@ -16,6 +16,9 @@ export class Credential implements ICredential {
     @Column({ type: 'text' })
     encryptedData: string
 
+    @Column({ nullable: true, type: 'uuid' })
+    workspaceId?: string
+
     @Column({ type: 'timestamp' })
     @CreateDateColumn()
     createdDate: Date

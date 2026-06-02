@@ -54,6 +54,7 @@ export interface IChatFlow {
     apiConfig?: string
     category?: string
     type?: ChatflowType
+    workspaceId?: string
 }
 
 export interface IChatMessage {

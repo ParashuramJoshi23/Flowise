@@ -25,6 +25,9 @@ export class Tool implements ITool {
     @Column({ nullable: true, type: 'text' })
     func?: string
 
+    @Column({ nullable: true, type: 'uuid' })
+    workspaceId?: string
+
     @Column({ type: 'timestamp' })
     @CreateDateColumn()
     createdDate: Date

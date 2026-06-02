@@ -14,6 +14,8 @@ import { CustomTemplate } from './CustomTemplate'
 import { Execution } from './Execution'
 import { Workspace } from './Workspace'
 import { WorkspaceMember } from './WorkspaceMember'
+import { User } from './User'
+import { IdentityProvider } from './IdentityProvider'
 
 export const entities = {
     ChatFlow,
@@ -31,5 +33,7 @@ export const entities = {
     CustomTemplate,
     Execution,
     Workspace,
-    WorkspaceMember
+    WorkspaceMember,
+    User,
+    IdentityProvider
 }

@@ -1,5 +1,8 @@
 import express from 'express'
 import workspacesRouter from './workspaces'
+import authRouter from './auth'
+import ssoRouter from './sso'
+import scimRouter from './scim'
 import apikeyRouter from './apikey'
 import assistantsRouter from './assistants'
 import attachmentsRouter from './attachments'
@@ -52,6 +55,9 @@ import agentflowv2GeneratorRouter from './agentflowv2-generator'
 const router = express.Router()
 
 router.use('/workspaces', workspacesRouter)
+router.use('/auth', authRouter)
+router.use('/sso', ssoRouter)
+router.use('/scim/v2', scimRouter)
 router.use('/ping', pingRouter)
 router.use('/apikey', apikeyRouter)
 router.use('/assistants', assistantsRouter)

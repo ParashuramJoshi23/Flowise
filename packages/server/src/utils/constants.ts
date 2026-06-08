@@ -1,4 +1,9 @@
 export const WHITELIST_URLS = [
+    '/api/v1/auth/login',
+    '/api/v1/auth/refresh',
+    '/api/v1/sso/oidc/',
+    '/api/v1/sso/saml/',
+    '/api/v1/scim/v2/',
     '/api/v1/verify/apikey/',
     '/api/v1/chatflows/apikey/',
     '/api/v1/public-chatflows',

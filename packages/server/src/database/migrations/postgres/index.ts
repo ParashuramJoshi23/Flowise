@@ -29,6 +29,7 @@ import { AddArtifactsToChatMessage1726156258465 } from './1726156258465-AddArtif
 import { AddFollowUpPrompts1726666309552 } from './1726666309552-AddFollowUpPrompts'
 import { AddTypeToAssistant1733011290987 } from './1733011290987-AddTypeToAssistant'
 import { AddExecutionEntity1738090872625 } from './1738090872625-AddExecutionEntity'
+import { AddSSOEntities1748000000000 } from './1748000000000-AddSSOEntities'
 import { AddWorkspaceEntities1748100000000 } from './1748100000000-AddWorkspaceEntities'
 
 export const postgresMigrations = [
@@ -63,5 +64,6 @@ export const postgresMigrations = [
     AddFollowUpPrompts1726666309552,
     AddTypeToAssistant1733011290987,
     AddExecutionEntity1738090872625,
+    AddSSOEntities1748000000000,
     AddWorkspaceEntities1748100000000
 ]

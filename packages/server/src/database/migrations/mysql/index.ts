@@ -31,6 +31,8 @@ import { AddTypeToAssistant1733011290987 } from './1733011290987-AddTypeToAssist
 import { AddWorkspaceEntities1748100000000 } from './1748100000000-AddWorkspaceEntities'
 import { AddExecutionEntity1738090872625 } from './1738090872625-AddExecutionEntity'
 
+import { AddSSOEntities1748000000000 } from './1748000000000-AddSSOEntities'
+
 export const mysqlMigrations = [
     Init1693840429259,
     ModifyChatFlow1693997791471,
@@ -63,5 +65,6 @@ export const mysqlMigrations = [
     AddFollowUpPrompts1726666302024,
     AddTypeToAssistant1733011290987,
     AddExecutionEntity1738090872625,
+    AddSSOEntities1748000000000,
     AddWorkspaceEntities1748100000000
 ]

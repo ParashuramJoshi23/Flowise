@@ -1,4 +1,5 @@
 import express from 'express'
+import workspacesRouter from './workspaces'
 import apikeyRouter from './apikey'
 import assistantsRouter from './assistants'
 import attachmentsRouter from './attachments'
@@ -50,6 +51,7 @@ import agentflowv2GeneratorRouter from './agentflowv2-generator'
 
 const router = express.Router()
 
+router.use('/workspaces', workspacesRouter)
 router.use('/ping', pingRouter)
 router.use('/apikey', apikeyRouter)
 router.use('/assistants', assistantsRouter)

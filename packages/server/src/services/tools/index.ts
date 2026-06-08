@@ -39,10 +39,11 @@ const deleteTool = async (toolId: string): Promise<any> => {
     }
 }
 
-const getAllTools = async (): Promise<Tool[]> => {
+const getAllTools = async (workspaceId?: string): Promise<Tool[]> => {
     try {
         const appServer = getRunningExpressApp()
-        const dbResponse = await appServer.AppDataSource.getRepository(Tool).find()
+        const where = workspaceId ? { workspaceId } : {}
+        const dbResponse = await appServer.AppDataSource.getRepository(Tool).find({ where })
         return dbResponse
     } catch (error) {
         throw new InternalFlowiseError(StatusCodes.INTERNAL_SERVER_ERROR, `Error: toolsService.getAllTools - ${getErrorMessage(error)}`)

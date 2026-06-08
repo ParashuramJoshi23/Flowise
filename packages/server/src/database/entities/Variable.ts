@@ -16,6 +16,9 @@ export class Variable implements IVariable {
     @Column({ default: 'string', type: 'text' })
     type: string
 
+    @Column({ nullable: true, type: 'uuid' })
+    workspaceId?: string
+
     @Column({ type: 'timestamp' })
     @CreateDateColumn()
     createdDate: Date

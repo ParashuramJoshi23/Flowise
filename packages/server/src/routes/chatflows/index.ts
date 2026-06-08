@@ -1,6 +1,11 @@
 import express from 'express'
 import chatflowsController from '../../controllers/chatflows'
+import { resolveWorkspace } from '../../middlewares/workspace'
+
 const router = express.Router()
+
+// Resolve workspace from X-Workspace-ID header on all chatflow requests
+router.use(resolveWorkspace)
 
 // CREATE
 router.post('/', chatflowsController.saveChatflow)

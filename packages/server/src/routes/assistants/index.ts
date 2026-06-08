@@ -1,7 +1,10 @@
 import express from 'express'
 import assistantsController from '../../controllers/assistants'
+import { resolveWorkspace } from '../../middlewares/workspace'
 
 const router = express.Router()
+
+router.use(resolveWorkspace)
 
 // CREATE
 router.post('/', assistantsController.createAssistant)

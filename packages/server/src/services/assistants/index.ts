@@ -193,16 +193,18 @@ const deleteAssistant = async (assistantId: string, isDeleteBoth: any): Promise<
     }
 }
 
-const getAllAssistants = async (type?: AssistantType): Promise<Assistant[]> => {
+const getAllAssistants = async (type?: AssistantType, workspaceId?: string): Promise<Assistant[]> => {
     try {
         const appServer = getRunningExpressApp()
+        const scopeWhere = workspaceId ? { workspaceId } : {}
         if (type) {
             const dbResponse = await appServer.AppDataSource.getRepository(Assistant).findBy({
-                type
+                type,
+                ...scopeWhere
             })
             return dbResponse
         }
-        const dbResponse = await appServer.AppDataSource.getRepository(Assistant).find()
+        const dbResponse = await appServer.AppDataSource.getRepository(Assistant).find({ where: scopeWhere })
         return dbResponse
     } catch (error) {
         throw new InternalFlowiseError(
